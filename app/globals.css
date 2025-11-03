@@ -59,10 +59,19 @@ body {
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
@@ -82,6 +91,12 @@ body {
   animation: glow 2s ease-in-out infinite;
 }
 
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -93,14 +108,32 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(245, 158, 11, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  background: linear-gradient(to bottom, #f59e0b, #ea580c);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  background: linear-gradient(to bottom, #d97706, #dc2626);
+}
+
+/* Hero timeline subtle background */
+.hero-timeline {
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(217, 119, 6, 0.12) 0px,
+    rgba(217, 119, 6, 0.12) 2px,
+    transparent 2px,
+    transparent 18px
+  );
+  animation: timeline-move 14s linear infinite;
+  background-size: 400px 100%;
+}
+
+@keyframes timeline-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 400px 0; }
 }
